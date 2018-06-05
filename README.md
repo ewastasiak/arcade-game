@@ -1,13 +1,38 @@
+
 frontend-nanodegree-arcade-game
 ===============================
 
-TODOs:
-0. Stop the hero from moving ever so slightly off screen
-1. Add bonus feature after 10 victories
-2. Add modals
-3. Remake all the graphics in a coherent style
-4. Create a mobile-friendly version
+## Arcade Game Clone, Udacity FEND project [4/8]
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Live version: https://ewastasiak.github.io/arcade-game/
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## How to run and play the game
+
+1. Use Chrome or Firefox. Opera should be fine(-ish). Internet Explorer – bad idea.
+2. The game is ready to play as soon as the page loads. If you are using a downloaded version, start unzipping the file and by running _index.html_.
+3. You can start moving around by using arrow keys:
+``move up: ↑
+move down: ↓
+move left: ←
+move right: →``
+4. **Plot foreshadowing**: you are a fragile ladybug on a green meadow. Also, a very thirsty one.
+5. Ergo: you need to reach the nearby river and have a rejuvenating drink. ASAP.
+6. Unfortunately, a crystal clear body of water is not the only thing before your eyes. There's also a grim parade of ghostly Jims Morrisons.
+7. Yeah, you've read that correctly. Multiple Jims Morrisons.
+8. Your mission is quite clear by this point, right? Reach the tasty water. Don't get squashed in the process. You might try to repeat your success a few times. Ten times, for instance.
+9. I really like number 9.
+
+## License:
+Soon(-ish).
+
+## TODO-s and known issues:
+
+1. Add the bonus characters, unlocking after 10 victories
+2. Remake all the graphics in a coherent style
+3. Create a responsive/mobile-friendly version
+4. Make this work on more browsers.
+5. Listen to The Doors.
+6.
+7.
+8.
+9. I really like number 9.
