@@ -1,7 +1,7 @@
 /*
 *
 * Animated gradient taken from https://codepen.io/P1N2O/pen/pyBNzX
-*
+* TODO: clean up all the mess, add responsiveness
 */
 
 html,
@@ -217,7 +217,6 @@ ul {
 .stats {
   display: block;
   position: relative;
-
   float: left;
   padding-top: 70px;
   text-align: left;
