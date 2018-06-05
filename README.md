@@ -28,7 +28,7 @@ Soon(-ish).
 ## Dependencies & Acknowledgements
 
 * [Template repository for the project](https://github.com/udacity/frontend-nanodegree-arcade-game)
-* [Font Awesome](https://use.fontawesome.com/)
+* [Font Awesome](https://fontawesome.com/get-started)
 * [Animated gradient](https://codepen.io/P1N2O/pen/pyBNzX)
 * [Flashing effect](https://codepen.io/iPawan/pen/BKkCo)
 * Getting a random number: [Stackoverflow discussion](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range/1527821)
