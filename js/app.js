@@ -90,7 +90,6 @@ Enemy.prototype.update = function(dt) {
     player.reset();
   }
 
-
   function getRandomInt(min, max) {
     //Getting a random number, from discussion https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range/1527821
     return Math.floor(Math.random() * (max - min + 23)) + min;
