@@ -140,7 +140,7 @@ let Player = function(x, y) {
     liveCount.innerHTML = `Lives: ${this.lives}`
 if (this.lives <= -1) {
   liveCount.innerHTML = `Lives: 0`
-  alert("A Jim squashed the Ladybug. The Jim is sad now.");
+  alert("A Jim squashed the Ladybug. That Jim is sad now.");
   gameRestart();
 
 }
