@@ -10,44 +10,48 @@ let points = 0;
 let pointsShow = document.querySelector('h2');
 
 // Page style helpers
+const getControls = document.getElementsByClassName('controls')[0];
 const musicInfo = document.getElementsByClassName('flashit')[0];
 const linkMusic = document.getElementsByClassName('link')[0];
-const soundIcon = document.getElementsByClassName('fa-info-circle')[0];
+const infoIcon = document.getElementsByClassName('fa-info-circle')[0];
 const bonusOptions = document.getElementsByClassName('fas')[1];
 //TODO: add in html
 const chooseChar = document.getElementsByClassName('bonus')[0];
+
+//Makes bonus options inactive
 bonusOptions.classList.add("fa-crown", "locked");
 
 bonusOptions.addEventListener("mouseover", function( event ) {
    // change locked crown into key
    bonusOptions.classList.remove("fa-crown");
    bonusOptions.classList.add("fa-key");
-
-
    // change locked key into crown
    setTimeout(function() {
      bonusOptions.classList.remove("fa-key");
-
      bonusOptions.classList.add("fa-crown", "locked");
    }, 1500);
  }, false);
 
 function toggleFunction() {
-    if (musicInfo.style.display === "none") {
+    if (musicInfo.style.display === "none" ) {
         musicInfo.style.display = "block";
     } else {
         musicInfo.style.display = "none";
     }
   }
 linkMusic.onclick = toggleFunction;
-soundIcon.onclick = toggleFunction;
+infoIcon.onclick = toggleFunction;
+
 
 
 //Check for bonus options
 if (points >= 9000) {
-bonusOptions.onclick = toggleBonus;
+bonusOptions.classList.remove("locked");
+bonusOptions.classList.add("unlocked");
+}
 
 function toggleBonus() {
+  bonusOptions.onclick = toggleBonus;
     if (chooseChar.style.display === "none") {
         chooseChar.style.display = "block";
     } else {
@@ -55,7 +59,7 @@ function toggleBonus() {
     }
   }
 
-}
+
 
 
 
@@ -132,9 +136,9 @@ let Player = function(x, y) {
 
   Player.prototype.update = function(dt) {
     let liveCount = document.getElementsByClassName("lives")[0];
-    liveCount.innerHTML = `Live count: ${this.lives}`
+    liveCount.innerHTML = `Lives: ${this.lives}`
 if (this.lives <= -1) {
-  liveCount.innerHTML = `Live count: 0`
+  liveCount.innerHTML = `Lives: 0`
   alert("A Jim squashed the Ladybug. The Jim is sad now.");
   gameRestart();
 
@@ -168,15 +172,16 @@ if (this.lives <= -1) {
 
         }
   			points++;
-        pointsShow.innerHTML = `<h2>Points: ${points}</h2>`;
+        pointsShow.innerHTML = `Points: ${points}`;
 
-        if (points >= 9000) {
-          bonusOptions.classList.remove("locked");
-        }
+
 
 
   		}, 100);
-    }
+
+
+      }
+
 
   }
 
@@ -299,5 +304,5 @@ function gameRestart() {
   if (points < 9000) {
     points = 0;
   }
-  pointsShow.innerHTML = `<h2>Points: ${points}</h2>`;
+  pointsShow.innerHTML = `Points: ${points}`;
 }
