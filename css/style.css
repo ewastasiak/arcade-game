@@ -191,13 +191,13 @@ p {
 h2 {
 	position: fixed;
 	z-index: 1;
-	font-family: 'Open Sans';
+	font-family: Verdana;
 	font-weight: 300;
 	text-align: right;
 	font-size: 1em;
 	padding: 1.5em 0;
 	right: 0.5em;
 	left: 0.2em;
-  width: 30%;
-	margin-top: 3em;
+  width: 40%;
+	margin: auto;
 }
