@@ -11,18 +11,20 @@ const musicInfo = document.getElementsByClassName('flashit')[0];
 const linkMusic = document.getElementsByClassName('link')[0];
 const soundIcon = document.getElementsByClassName('fa-info-circle')[0];
 const bonusOptions = document.getElementsByClassName('fas')[1];
+//TODO: add in html
+const chooseChar = document.getElementsByClassName('bonus')[0];
 bonusOptions.classList.add("fa-crown", "locked");
 
 bonusOptions.addEventListener("mouseover", function( event ) {
-   // highlight the mouseover target
+   // change locked crown into key
    bonusOptions.classList.remove("fa-crown");
    bonusOptions.classList.add("fa-key");
 
 
-   // reset the color after a short delay
+   // change locked key into crown
    setTimeout(function() {
      bonusOptions.classList.remove("fa-key");
-     bonusOptions.color = "#111";
+
      bonusOptions.classList.add("fa-crown", "locked");
    }, 700);
  }, false);
@@ -38,11 +40,14 @@ linkMusic.onclick = toggleFunction;
 soundIcon.onclick = toggleFunction;
 
 
+
+
+
+
+
+//Points and lives counter TODO: add lives counter in HTML)
 let points = 0;
 let pointsShow = document.querySelector('h2');
-
-
-
 
 // Enemies our player must avoid
 
@@ -111,10 +116,12 @@ let Player = function(x, y) {
 	};
 
   Player.prototype.update = function(dt) {
+    let liveCount = document.getElementsByClassName("lives")[0];
+    liveCount.innerHTML = `Live count: ${this.lives}`
 if (this.lives <= 0) {
   alert("Game over");
   gameRestart();
-  this.lives = 5;
+
 }
   }
 
@@ -141,10 +148,16 @@ if (this.lives <= 0) {
   			player.y = 400;
         if (points === 9) {
           points += 9000;
-          alert("10th ladybug saved from getting squashed by Jims! You are awarded 9000 points")
+          alert("You won 10 times and unlocked bonus options. AND are awarded 9000 points. If that's not gratification, then I don't know what is.")
+
         }
   			points++;
         pointsShow.innerHTML = `<h2>Points: ${points}</h2>`;
+
+        if (points >= 9000) {
+          bonusOptions.classList.remove("locked");
+        }
+
 
   		}, 100);
     }
@@ -154,6 +167,7 @@ if (this.lives <= 0) {
   Player.prototype.reset = function() {
     this.x = 200;
   	this.y = 400;
+
   }
 
 
@@ -265,17 +279,23 @@ document.addEventListener('keyup', function(e) {
 
 function gameRestart() {
 	player.reset();
-  points = 0;
+  player.lives = 5;
+  if (points < 9000) {
+    points = 0;
+  }
   pointsShow.innerHTML = `<h2>Points: ${points}</h2>`;
 }
 
+//Check for bonus options
+if (points >= 9000) {
+bonusOptions.onclick = toggleBonus;
 
-//Gradient
+function toggleBonus() {
+    if (chooseChar.style.display === "none") {
+        chooseChar.style.display = "block";
+    } else {
+        chooseChar.style.display = "none";
+    }
+  }
 
-
-
-// let canvas4Grad = document.getElementsByTagName("canvas");
-// canvas4Grad[0].setAttribute("id", "myCanvas");
-// let setGradientOnCanvas = document.getElementbyId('myCanvas'); // in your HTML this element appears as <canvas id="myCanvas"></canvas>
-// let ctx = canvas.getContext('2d');
-// canvas.fillRect(20,20,150,100);
+}
