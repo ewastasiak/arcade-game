@@ -5,6 +5,9 @@ readme - how to load and play the game
 
 */
 
+//Points and lives counter TODO: add lives counter in HTML)
+let points = 0;
+let pointsShow = document.querySelector('h2');
 
 // Page style helpers
 const musicInfo = document.getElementsByClassName('flashit')[0];
@@ -26,7 +29,7 @@ bonusOptions.addEventListener("mouseover", function( event ) {
      bonusOptions.classList.remove("fa-key");
 
      bonusOptions.classList.add("fa-crown", "locked");
-   }, 700);
+   }, 1500);
  }, false);
 
 function toggleFunction() {
@@ -40,14 +43,24 @@ linkMusic.onclick = toggleFunction;
 soundIcon.onclick = toggleFunction;
 
 
+//Check for bonus options
+if (points >= 9000) {
+bonusOptions.onclick = toggleBonus;
+
+function toggleBonus() {
+    if (chooseChar.style.display === "none") {
+        chooseChar.style.display = "block";
+    } else {
+        chooseChar.style.display = "none";
+    }
+  }
+
+}
 
 
 
 
 
-//Points and lives counter TODO: add lives counter in HTML)
-let points = 0;
-let pointsShow = document.querySelector('h2');
 
 // Enemies our player must avoid
 
@@ -284,18 +297,4 @@ function gameRestart() {
     points = 0;
   }
   pointsShow.innerHTML = `<h2>Points: ${points}</h2>`;
-}
-
-//Check for bonus options
-if (points >= 9000) {
-bonusOptions.onclick = toggleBonus;
-
-function toggleBonus() {
-    if (chooseChar.style.display === "none") {
-        chooseChar.style.display = "block";
-    } else {
-        chooseChar.style.display = "none";
-    }
-  }
-
 }
