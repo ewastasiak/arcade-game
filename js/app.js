@@ -5,39 +5,60 @@ readme - how to load and play the game
 
 */
 
+//Points and lives counter TODO: add lives counter in HTML)
+let points = 0;
+let pointsShow = document.querySelector('h2');
+pointsShow.innerHTML = `Points: 0`
 
 // Page style helpers
+const getControls = document.getElementsByClassName('controls')[0];
 const musicInfo = document.getElementsByClassName('flashit')[0];
 const linkMusic = document.getElementsByClassName('link')[0];
-const soundIcon = document.getElementsByClassName('fa-info-circle')[0];
+const infoIcon = document.getElementsByClassName('fa-info-circle')[0];
 const bonusOptions = document.getElementsByClassName('fas')[1];
 //TODO: add in html
 const chooseChar = document.getElementsByClassName('bonus')[0];
+
+//Makes bonus options inactive
 bonusOptions.classList.add("fa-crown", "locked");
 
 bonusOptions.addEventListener("mouseover", function( event ) {
    // change locked crown into key
    bonusOptions.classList.remove("fa-crown");
    bonusOptions.classList.add("fa-key");
-
-
    // change locked key into crown
    setTimeout(function() {
      bonusOptions.classList.remove("fa-key");
-
      bonusOptions.classList.add("fa-crown", "locked");
-   }, 700);
+   }, 1500);
  }, false);
 
 function toggleFunction() {
-    if (musicInfo.style.display === "none") {
+    if (musicInfo.style.display === "none" ) {
         musicInfo.style.display = "block";
     } else {
         musicInfo.style.display = "none";
     }
   }
 linkMusic.onclick = toggleFunction;
-soundIcon.onclick = toggleFunction;
+infoIcon.onclick = toggleFunction;
+
+
+
+//Check for bonus options
+if (points >= 9000) {
+bonusOptions.classList.remove("locked");
+bonusOptions.classList.add("unlocked");
+}
+
+function toggleBonus() {
+  bonusOptions.onclick = toggleBonus;
+    if (chooseChar.style.display === "none") {
+        chooseChar.style.display = "block";
+    } else {
+        chooseChar.style.display = "none";
+    }
+  }
 
 
 
@@ -45,9 +66,6 @@ soundIcon.onclick = toggleFunction;
 
 
 
-//Points and lives counter TODO: add lives counter in HTML)
-let points = 0;
-let pointsShow = document.querySelector('h2');
 
 // Enemies our player must avoid
 
@@ -72,8 +90,10 @@ Enemy.prototype.update = function(dt) {
   this.speed = getRandomInt(200, 300);
 	this.x += this.speed*dt;
 
+//Restart
   if (this.x > 510) {
-  this.x = -50;
+  this.x = getRandomInt(-211,-800);
+  // this.x = -50;
 }
 
 //idea from https://medium.com/letsboot/classic-arcade-game-with-js-5687e4125169
@@ -117,9 +137,10 @@ let Player = function(x, y) {
 
   Player.prototype.update = function(dt) {
     let liveCount = document.getElementsByClassName("lives")[0];
-    liveCount.innerHTML = `Live count: ${this.lives}`
-if (this.lives <= 0) {
-  alert("Game over");
+    liveCount.innerHTML = `Lives: ${this.lives}`
+if (this.lives <= -1) {
+  liveCount.innerHTML = `Lives: 0`
+  alert("A Jim squashed the Ladybug. The Jim is sad now.");
   gameRestart();
 
 }
@@ -130,11 +151,20 @@ if (this.lives <= 0) {
   }
 
   Player.prototype.handleInput = function(keyPress) {
+    // //TODO: no move offscreen pls
+    // if (keyPress == 'left' && this.x <= 80) {
+    //   this.x -= 0;
+    // }
+    // if (keyPress == 'right' && this.x >= 320) {
+    //   this.x += 0;
+    // }
+
+
     if (keyPress == 'left' && this.x > 0) {
-  		this.x -= 80;
+  		this.x -= 100;
   	}
-  	if (keyPress == 'right' && this.x < 400) {
-  		this.x += 80;
+  	if (keyPress == 'right' && this.x < 357) {
+  		this.x += 100;
   	}
   	if (keyPress == 'up' && this.y > 0) {
   		this.y -= 80;
@@ -148,19 +178,13 @@ if (this.lives <= 0) {
   			player.y = 400;
         if (points === 9) {
           points += 9000;
-          alert("You won 10 times and unlocked bonus options. AND are awarded 9000 points. If that's not gratification, then I don't know what is.")
-
+          alert("You won 10 times and unlocked bonus options. AND you are awarded 9000 points. If that's not gratification, then I don't know what is.")
         }
   			points++;
-        pointsShow.innerHTML = `<h2>Points: ${points}</h2>`;
-
-        if (points >= 9000) {
-          bonusOptions.classList.remove("locked");
-        }
-
-
+        pointsShow.innerHTML = `Points: ${points}`;
   		}, 100);
-    }
+      }
+
 
   }
 
@@ -283,19 +307,5 @@ function gameRestart() {
   if (points < 9000) {
     points = 0;
   }
-  pointsShow.innerHTML = `<h2>Points: ${points}</h2>`;
-}
-
-//Check for bonus options
-if (points >= 9000) {
-bonusOptions.onclick = toggleBonus;
-
-function toggleBonus() {
-    if (chooseChar.style.display === "none") {
-        chooseChar.style.display = "block";
-    } else {
-        chooseChar.style.display = "none";
-    }
-  }
-
+  pointsShow.innerHTML = `Points: ${points}`;
 }

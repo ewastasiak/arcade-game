@@ -27,8 +27,7 @@ body {
 
 
 
-	width: 100wh;
-	height: 90vh;
+
 	color: #fff;
 	background: linear-gradient(-45deg, #A0A0A0, #404040, #202020, #000000);
 	background-size: 400% 400%;
@@ -76,7 +75,7 @@ body {
 
 canvas {
 	z-index: 0;
-	padding-top: 2em;
+	/* padding-top: 2em; */
 	height: 90%;
 	position: absolute;
     top:0;
@@ -136,6 +135,8 @@ a:hover {
 	cursor: pointer;
 }
 
+
+
 .flexbox {
 	padding: 1em;
 	z-index: 1;
@@ -159,6 +160,15 @@ a:hover {
 .locked:hover {
 	color: grey;
 
+}
+
+/* TODO: unlock the crown icon */
+.unlocked {
+	color: #ace;
+}
+.unlocked:hover {
+	color: #ff4c00;
+	cursor: pointer;
 }
 
 i {
@@ -188,16 +198,52 @@ p {
 }
 
 
+
+
+
 h2 {
-	position: fixed;
+	position: absolute;
 	z-index: 1;
-	font-family: 'Open Sans';
+	font-family: Verdana;
 	font-weight: 300;
 	text-align: right;
 	font-size: 1em;
-	padding: 1.5em 0;
+	padding: 0 0;
 	right: 0.5em;
 	left: 0.2em;
-  width: 30%;
-	margin-top: 3em;
+  width: 80%;
+	margin: auto;
+		background-color: #222;
+}
+
+
+ul {
+	list-style: none;
+	font-size: 1em;
+}
+
+.controls {
+	display: block;
+	color: #ace;
+	z-index: 2;
+	float: left;
+	text-align: left;
+	width: 20%;
+height: 30%;
+overflow: hidden;
+margin: auto;
+position: absolute;
+left: 0; bottom: 0;
+
+}
+
+.stats {
+	display: block;
+	position: relative;
+
+	float: left;
+	padding-top: 70px;
+	text-align: left;
+	width: 180px;
+
 }
