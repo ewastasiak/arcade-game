@@ -85,8 +85,10 @@ Enemy.prototype.update = function(dt) {
   this.speed = getRandomInt(200, 300);
 	this.x += this.speed*dt;
 
+//Restart
   if (this.x > 510) {
-  this.x = -50;
+  this.x = getRandomInt(-211,-800);
+  // this.x = -50;
 }
 
 //idea from https://medium.com/letsboot/classic-arcade-game-with-js-5687e4125169
@@ -131,8 +133,9 @@ let Player = function(x, y) {
   Player.prototype.update = function(dt) {
     let liveCount = document.getElementsByClassName("lives")[0];
     liveCount.innerHTML = `Live count: ${this.lives}`
-if (this.lives <= 0) {
-  alert("Game over");
+if (this.lives <= -1) {
+  liveCount.innerHTML = `Live count: 0`
+  alert("A Jim squashed the Ladybug. The Jim is sad now.");
   gameRestart();
 
 }
