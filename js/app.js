@@ -10,6 +10,22 @@ readme - how to load and play the game
 const musicInfo = document.getElementsByClassName('flashit')[0];
 const linkMusic = document.getElementsByClassName('link')[0];
 const soundIcon = document.getElementsByClassName('fa-info-circle')[0];
+const bonusOptions = document.getElementsByClassName('fas')[1];
+bonusOptions.classList.add("fa-crown", "locked");
+
+bonusOptions.addEventListener("mouseover", function( event ) {
+   // highlight the mouseover target
+   bonusOptions.classList.remove("fa-crown");
+   bonusOptions.classList.add("fa-key");
+
+
+   // reset the color after a short delay
+   setTimeout(function() {
+     bonusOptions.classList.remove("fa-key");
+     bonusOptions.color = "#111";
+     bonusOptions.classList.add("fa-crown", "locked");
+   }, 700);
+ }, false);
 
 function toggleFunction() {
     if (musicInfo.style.display === "none") {

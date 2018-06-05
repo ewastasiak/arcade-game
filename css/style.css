@@ -87,6 +87,8 @@ canvas {
 }
 
 
+
+
 /*
 *
 * Flashing effect taken from https://codepen.io/iPawan/pen/BKkCo
@@ -132,14 +134,40 @@ a:hover {
 	cursor: pointer;
 }
 
+.flexbox {
+	padding: 1em;
+	z-index: 1;
+	width: 50px;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	float: right;
+	/* clear: both; */
+	position: fixed;
+	margin: 0;
+	justify-content: space-between;
+	text-align: center;
+	right: 0;
+}
+
+.locked {
+	color: #111;
+}
+
+.locked:hover {
+	color: grey;
+
+}
+
 i {
 	z-index: 1;
-	margin: 0.2em 0.3em;
-  position: fixed;
-  right: 0;
+	display: inline-flex;
+
+
   font-size: 1.7em;
-  text-align: left;
-  display: block;
+
+
+
   color: #ace;
 
 }
