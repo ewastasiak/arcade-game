@@ -151,11 +151,20 @@ if (this.lives <= -1) {
   }
 
   Player.prototype.handleInput = function(keyPress) {
+    // //TODO: no move offscreen pls
+    // if (keyPress == 'left' && this.x <= 80) {
+    //   this.x -= 0;
+    // }
+    // if (keyPress == 'right' && this.x >= 320) {
+    //   this.x += 0;
+    // }
+
+
     if (keyPress == 'left' && this.x > 0) {
-  		this.x -= 80;
+  		this.x -= 100;
   	}
-  	if (keyPress == 'right' && this.x < 400) {
-  		this.x += 80;
+  	if (keyPress == 'right' && this.x < 357) {
+  		this.x += 100;
   	}
   	if (keyPress == 'up' && this.y > 0) {
   		this.y -= 80;
@@ -174,8 +183,6 @@ if (this.lives <= -1) {
   			points++;
         pointsShow.innerHTML = `Points: ${points}`;
   		}, 100);
-
-
       }
 
 
