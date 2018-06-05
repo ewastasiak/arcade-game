@@ -28,10 +28,9 @@ bonusOptions.addEventListener("mouseover", function(event) {
       bonusOptions.classList.remove("fa-key");
       bonusOptions.classList.add("fa-crown", "locked");
     }, 1500);
-  },
-  false
-);
+  }, false);
 
+// This hides/shows the .flashit information about available music background
 function toggleFunction() {
   if (musicInfo.style.display === "none") {
     musicInfo.style.display = "block";
@@ -42,12 +41,13 @@ function toggleFunction() {
 linkMusic.onclick = toggleFunction;
 infoIcon.onclick = toggleFunction;
 
-//Check for bonus options
+//TODO:Check for bonus options
 if (points >= 9000) {
   bonusOptions.classList.remove("locked");
   bonusOptions.classList.add("unlocked");
 }
 
+//TODO: Show a modal with additional characters to choose
 function toggleBonus() {
   bonusOptions.onclick = toggleBonus;
   if (chooseChar.style.display === "none") {
@@ -58,14 +58,12 @@ function toggleBonus() {
 }
 
 // Enemies our player must avoid
-
 let Enemy = function(x, y, speed) {
   // Variables applied to each of our instances go here,
   // we've provided one for you to get started
   this.x = x;
   this.y = y;
   this.speed = speed;
-
   // The image/sprite for our enemies, this uses
   // a helper we've provided to easily load images
   this.sprite = "images/enemy-bug.png";
@@ -76,11 +74,9 @@ let Enemy = function(x, y, speed) {
 Enemy.prototype.update = function(dt) {
   this.speed = getRandomInt(200, 500);
   this.x += this.speed * dt;
-
   //Restart
   if (this.x > 510) {
     this.x = getRandomInt(-211, -800);
-    // this.x = -50;
   }
 
   //idea from https://medium.com/letsboot/classic-arcade-game-with-js-5687e4125169
@@ -94,8 +90,9 @@ Enemy.prototype.update = function(dt) {
     player.reset();
   }
 
+
   function getRandomInt(min, max) {
-    // from discussion https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range/1527821
+    //Getting a random number, from discussion https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range/1527821
     return Math.floor(Math.random() * (max - min + 23)) + min;
   }
 
@@ -151,6 +148,7 @@ Player.prototype.handleInput = function(keyPress) {
     setTimeout(function() {
       player.x = 200;
       player.y = 400;
+      //Win 10 times, get 9000 points
       if (points === 9) {
         points += 9000;
         alert(
@@ -171,13 +169,13 @@ Player.prototype.reset = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
+let player = new Player(200, 400);
 let allEnemies = [];
 
 enemy1 = new Enemy(0, 60, 200);
 enemy2 = new Enemy(0, 140, 200);
 enemy3 = new Enemy(0, 230, 200);
-
+//TODO: work on enemies spawning (irregular, various speeds maybe?)
 // if (allEnemies.length >= 9) {
 // allEnemies.shuffle();
 // sendEnemies()
@@ -186,7 +184,7 @@ sendEnemies();
 
 function sendEnemies() {
   function randomTimeout(min, max) {
-    // from discussion https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range/1527821
+    // Function below - from discussion https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range/1527821
     return Math.floor(Math.random() * (max - min + 320)) + min;
   }
 
@@ -199,53 +197,7 @@ function sendEnemies() {
   }, randomTimeout(7000, 9000));
 }
 
-// function sendEnemies() {
-// allEnemies.push(enemy1);
-// setTimeout(function() {
-// allEnemies.push(enemy2);
-// }, 8000);
-// setTimeout(function() {
-// allEnemies.push(enemy3);
-// }, 3300);
-// }
 
-// // Shuffle function from http://stackoverflow.com/a/2450976
-// //to shuffle the enemies array
-// function shuffle(array) {
-//   var currentIndex = allENemies.length,
-//     temporaryValue,
-//     randomIndex;
-//
-//   while (currentIndex !== 0) {
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex -= 1;
-//     temporaryValue = array[currentIndex];
-//     array[currentIndex] = array[randomIndex];
-//     array[randomIndex] = temporaryValue;
-//   }
-//
-//   return array;
-// }
-
-// TODO:  should I reset the enemies to the initial position or throw them out of the array and put new ones in
-// if (Enemy.x >= 700) {
-//   function enemyIsOut() {
-//     allEnemies.filter(enemyIsOut)
-//     allEnemies.push(new Enemy(0, ???, 200))
-//   }
-// }
-
-// function getRandomSpeed(max) {
-//   return Math.floor(Math.random() * Math.floor(max) * 10)+50;
-// }
-
-// const enemyPlacement = [60, 140, 230];
-// enemyPlacement.forEach(function(positionY) {
-// 	enemy = new Enemy(0, positionY, 200);
-// 	allEnemies.push(enemy);
-// });
-
-let player = new Player(200, 400);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
