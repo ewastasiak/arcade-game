@@ -169,8 +169,7 @@ if (this.lives <= -1) {
   			player.y = 400;
         if (points === 9) {
           points += 9000;
-          alert("You won 10 times and unlocked bonus options. AND are awarded 9000 points. If that's not gratification, then I don't know what is.")
-
+          alert("You won 10 times and unlocked bonus options. AND you are awarded 9000 points. If that's not gratification, then I don't know what is.")
         }
   			points++;
         pointsShow.innerHTML = `Points: ${points}`;
