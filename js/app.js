@@ -8,6 +8,7 @@ readme - how to load and play the game
 //Points and lives counter TODO: add lives counter in HTML)
 let points = 0;
 let pointsShow = document.querySelector('h2');
+pointsShow.innerHTML = `Points: 0`
 
 // Page style helpers
 const getControls = document.getElementsByClassName('controls')[0];
@@ -173,10 +174,6 @@ if (this.lives <= -1) {
         }
   			points++;
         pointsShow.innerHTML = `Points: ${points}`;
-
-
-
-
   		}, 100);
 
 
