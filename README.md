@@ -34,5 +34,5 @@ Soon(-ish).
 5. Listen to The Doors.
 6.
 7.
-8.
+8. Add other stuff.
 9. I really like number 9.
