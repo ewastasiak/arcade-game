@@ -14,9 +14,8 @@ body {
   font-size: 1.2em;
   font-family: Verdana, sans;
   border: 0;
-  overflow: hidden; /*  Disable scrollbars */
-  display: block; /* No floating content on sides */
-
+  overflow: hidden;
+  display: block;
   color: #fff;
   background: linear-gradient(-45deg, #a0a0a0, #404040, #202020, #000000);
   background-size: 400% 400%;
@@ -162,9 +161,7 @@ a:hover {
 i {
   z-index: 1;
   display: inline-flex;
-
   font-size: 1.7em;
-
   color: #ace;
 }
 

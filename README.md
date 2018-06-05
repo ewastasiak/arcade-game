@@ -2,6 +2,7 @@ frontend-nanodegree-arcade-game
 ===============================
 
 TODOs:
+
 0. Stop the hero from moving ever so slightly off screen
 1. Add bonus feature after 10 victories
 2. Add modals
