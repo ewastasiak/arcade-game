@@ -8,7 +8,7 @@ readme - how to load and play the game
 //Points and lives counter TODO: add lives counter in HTML)
 let points = 0;
 let pointsShow = document.querySelector('h2');
-pointsShow.innerHTML = `Points: 0`
+pointsShow.innerHTML = `Points: 0`;
 
 // Page style helpers
 const getControls = document.getElementsByClassName('controls')[0];
@@ -137,27 +137,20 @@ let Player = function(x, y) {
 
   Player.prototype.update = function(dt) {
     let liveCount = document.getElementsByClassName("lives")[0];
-    liveCount.innerHTML = `Lives: ${this.lives}`
+    liveCount.innerHTML = `Lives: ${this.lives}`;
 if (this.lives <= -1) {
-  liveCount.innerHTML = `Lives: 0`
+  liveCount.innerHTML = `Lives: 0`;
   alert("A Jim squashed the Ladybug. That Jim is sad now.");
   gameRestart();
 
 }
-  }
+};
 
   Player.prototype.render = function() {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  }
+};
 
   Player.prototype.handleInput = function(keyPress) {
-    // //TODO: no move offscreen pls
-    // if (keyPress == 'left' && this.x <= 80) {
-    //   this.x -= 0;
-    // }
-    // if (keyPress == 'right' && this.x >= 320) {
-    //   this.x += 0;
-    // }
 
 
     if (keyPress == 'left' && this.x > 0) {
@@ -178,7 +171,7 @@ if (this.lives <= -1) {
   			player.y = 400;
         if (points === 9) {
           points += 9000;
-          alert("You won 10 times and unlocked bonus options. AND you are awarded 9000 points. If that's not gratification, then I don't know what is.")
+          alert("You won 10 times and unlocked bonus options. AND you are awarded 9000 points. If that's not gratification, then I don't know what is.");
         }
   			points++;
         pointsShow.innerHTML = `Points: ${points}`;
@@ -186,13 +179,13 @@ if (this.lives <= -1) {
       }
 
 
-  }
+  };
 
   Player.prototype.reset = function() {
     this.x = 200;
   	this.y = 400;
 
-  }
+  };
 
 
 
