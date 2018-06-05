@@ -74,7 +74,7 @@ let Enemy = function(x, y, speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-  this.speed = getRandomInt(200, 300);
+  this.speed = getRandomInt(200, 500);
   this.x += this.speed * dt;
 
   //Restart
