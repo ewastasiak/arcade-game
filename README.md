@@ -46,3 +46,8 @@ Soon(-ish).
 7.
 8. Add other stuff.
 9. I really like number 9.
+
+## A Fail and a Thank You
+
+I don't always make notes. I often reference JavaScript, as it's the whole new world for me. I can't pinpoint whose file is the reference file I used when I got totally stuck, but I know the person is somewhere out there, on Slack.
+Too bad that Slack is so good at erasing all the tracks ;(
